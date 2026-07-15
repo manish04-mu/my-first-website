@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Page</title>
+  <style>
+    body{
+        margin:0;
+        height:100vh;
+
+        /*background-image:url("MainImageBackground.jpg");*/
+        background-size:contain;
+        background-repeat:no-repeat;
+        background-position:center;
+        background-color:#181410;   /* same color as wall */
+    }
+
+    .wall{
+    position:relative;
+    width:100%;
+    max-width:1920px;
+}
+
+.background{
+    width:100%;
+    display:block;
+}
+
+.cert{
+    position:absolute;
+    object-fit:contain;
+}
+
+.cert-bg1{
+    left:26.9%;
+    top:6.1%;
+    width:12.4%;
+    height:18%;
+}
+
+.cert-bg2{
+    left:41.39%;
+    top:6.3%;
+    width:13.2%;
+    height:18%;
+}
+
+.cert-bg3{
+    left:56.9%;
+    top:6.1%;
+    width:12.2%;
+    height:18.25%;
+}
+
+.cert-bg4{
+    left:26.9%;
+    top:27.9%;
+    width:12.4%;
+    height:17.1%;
+}
+
+.cert-bg5{
+    left:41.39%;
+    top:27.9%;
+    width:13.2%;
+    height:16.9%;
+}
+
+.cert-bg6{
+    left:56.7%;
+    top:28.1%;
+    width:12.3%;
+    height:16.7%;
+}
+
+.istqb-ctfl-cert1{
+    left:27%;
+    top:7.5%;
+    width:12.2%;
+    height:15%;
+}
+
+.nptel-dc-cert2{
+    left:41.45%;
+    top:7%;
+    width:13.1%;
+    height:16.5%;
+}
+
+.id-card{
+    left:85.6%;
+    top:26.9%;
+    width:6.3%;
+    height:20.6%;
+}
+
+    .img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+  </style>
+</head>
+<body>
+  <div class="wall">
+
+    <img class="background" src="MainImageBackground.jpg">
+
+    <div class="cert cert-bg1">
+        <img class="img" src="light-coffee.jpg">
+    </div>
+
+    <div class="cert cert-bg2">
+        <img class="img" src="light-coffee.jpg">
+    </div>
+
+    <div class="cert cert-bg3">
+        <img class="img" src="light-coffee.jpg">
+    </div>
+
+    <div class="cert cert-bg4">
+        <img class="img" src="light-coffee.jpg">
+    </div>
+
+    <div class="cert cert-bg5">
+        <img class="img" src="light-coffee.jpg">
+    </div>
+
+    <div class="cert cert-bg6">
+        <img class="img" src="light-coffee.jpg">
+    </div>
+
+
+    <div class="cert istqb-ctfl-cert1" id="certificateTrigger1">
+        <img class="img" src="PhotoFrame1-ISTQB-CTFL.jpg">
+    </div>
+
+    <div class="cert nptel-dc-cert2" id="certificateTrigger2">
+        <img class="img" src="NPTEL-DC.jpg">
+    </div>
+
+    <div class="cert id-card" id="certificateTrigger3">
+        <img class="img" src="ID-Card.jpg">
+    </div>
+
+</div>
+
+  <div class="modal" id="imageModal1">
+    <img src="PhotoFrame1-ISTQB-CTFL.jpg" alt="Expanded certificate" />
+  </div>
+
+  <div class="modal" id="imageModal2">
+    <img src="NPTEL-DC.jpg" alt="Expanded certificate" />
+  </div>
+
+  <div class="modal" id="imageModal3">
+    <img src="ID-Card.jpg" alt="Expanded certificate" />
+  </div>
+
+  <script>
+    const trigger1 = document.getElementById('certificateTrigger1');
+    const modal1 = document.getElementById('imageModal1');
+
+    trigger1.addEventListener('click', function (event) {
+      event.stopPropagation();
+      modal1.classList.add('active');
+    });
+
+    modal1.addEventListener('click', function () {
+      modal1.classList.remove('active');
+    });
+  </script>
+
+  <script>
+    const trigger2 = document.getElementById('certificateTrigger2');
+    const modal2 = document.getElementById('imageModal2');
+
+    trigger2.addEventListener('click', function (event) {
+      event.stopPropagation();
+      modal2.classList.add('active');
+    });
+
+    modal2.addEventListener('click', function () {
+      modal2.classList.remove('active');
+    });
+  </script>
+
+   <script>
+    const trigger3 = document.getElementById('certificateTrigger3');
+    const modal3 = document.getElementById('imageModal3');
+    let idCardExpanded = false;
+
+    trigger3.addEventListener('click', function (event) {
+      event.stopPropagation();
+
+      if (!idCardExpanded) {
+        idCardExpanded = true;
+        modal3.classList.add('active');
+      }
+    });
+
+    modal3.addEventListener('click', function () {
+      if (idCardExpanded) {
+        idCardExpanded = false;
+        modal3.classList.remove('active');
+        window.open('https://www.linkedin.com/in/manish04mu', '_blank', 'noopener,noreferrer');
+      }
+    });
+  </script>
+
+</body>
+</html>
